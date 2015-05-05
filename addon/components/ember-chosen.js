@@ -53,7 +53,7 @@ export default Ember.Component.extend({
       if(isMultiple) {
         currentValue = _this.get('value');
 
-        if(params.selected) {
+        if(params && params.selected) {
           currentValue.pushObject(params.selected);
         } else {
           index = currentValue.indexOf(params.deselected);
@@ -65,7 +65,7 @@ export default Ember.Component.extend({
 
         selectedValue = currentValue;
       } else {
-        selectedValue = params.selected;
+        selectedValue = params && params.selected ? params.selected : '';
       }
 
       _this.set('value', selectedValue);
