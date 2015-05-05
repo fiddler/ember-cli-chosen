@@ -14,6 +14,7 @@ export default Ember.Component.extend({
   value: null,
   width: '100%',
   selectionDidChange: null,
+  allowSingleDeselect: null,
   _options: function() {
     var options = {};
 
@@ -21,6 +22,7 @@ export default Ember.Component.extend({
     if(!Ember.isNone(this.get('noResultsText'))) { options['no_results_text'] = this.get('noResultsText'); }
     if(!Ember.isNone(this.get('maxSelectedOptions'))) { options['max_selected_options'] = this.get('maxSelectedOptions'); }
     if(!Ember.isNone(this.get('width'))) { options['width'] = this.get('width'); }
+    if(!Ember.isNone(this.get('allowSingleDeselect'))) { options['allow_single_deselect'] = this.get('allowSingleDeselect'); }
 
     return options;
   }.property('prompt', 'isRtl', 'multiple', 'disableSearchThreshold',
